@@ -128,41 +128,8 @@ func processVideoForFastStart(filePath string) (string, error) {
 		return "", err
 	}
 
-	// cleanup(filePath) idk how to fix race condition here cuz ffmpeg doesnt let me
+	// cleanup(filePath) idk how to fix race condition here cuz ffmpeg doesnt let me so I just got rid of it 
 
 	return outputFilePath, nil
 }
 
-// func getVideoAspectRatio(filePath string) (string, error) {
-// 	var buf bytes.Buffer
-
-// 	cmd := exec.Command("ffprobe", "-v", "error", "-print_format", "json", "-show_streams", filePath)
-// 	cmd.Stdout = &buf
-
-// 	err := cmd.Run()
-// 	if err != nil {
-// 		return "", err
-// 	}
-
-// 	type VideoAspectRatio struct {
-// 		Width  float32 `json:"width"`
-// 		Height float32 `json:"height"`
-// 	}
-
-// 	videoAspectRatio := VideoAspectRatio{}
-
-// 	err = json.Unmarshal(buf.Bytes(), &videoAspectRatio)
-// 	if err != nil {
-// 		return "", err
-// 	}
-
-// 	ratio := videoAspectRatio.Width / videoAspectRatio.Height
-// 	switch ratio {
-// 	case 16.0 / 9.0:
-// 		return "16:9", nil
-// 	case 9.0 / 16.0:
-// 		return "9:16", nil
-// 	default:
-// 		return "other", nil
-// 	}
-// }
