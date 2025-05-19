@@ -1,4 +1,4 @@
-I used starter code to create video handler and platform app  
+I used the starter code to create video handler and platform app it only makes a fast start for the video  
 
 # learn-file-storage-s3-golang-starter (Tubely)
 
